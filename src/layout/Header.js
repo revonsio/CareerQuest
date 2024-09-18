@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../context/UserContext';
-import Cookies from 'js-cookie';
 import { FaBars } from 'react-icons/fa'; 
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); 
-  const userData = useUser(); 
+  const { userData, logout } = useUser(); // Mengambil userData dan logout dari UserContext
   const navigate = useNavigate();
 
   // Function to logout
   const handleLogout = () => {
-    Cookies.remove('token');
-    navigate('/login'); 
+    logout(); // Menggunakan fungsi logout dari UserContext
+    navigate('/login'); // Mengarahkan ke halaman login
   };
 
   // Toggle dropdown menu

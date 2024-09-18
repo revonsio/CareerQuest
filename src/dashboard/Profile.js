@@ -2,7 +2,7 @@ import React from 'react';
 import { useUser } from '../context/UserContext';
 
 const Profile = () => {
-  const userData = useUser();
+  const { userData } = useUser(); // Mengakses userData dari context
 
   if (!userData) {
     return (
@@ -27,17 +27,17 @@ const Profile = () => {
           <tr>
             <td className="font-semibold pr-4">Name</td>
             <td>:</td>
-            <td className='pl-2'>{userData.name}</td>
+            <td className="pl-2">{userData.name}</td>
           </tr>
           <tr>
             <td className="font-semibold pr-4">Email</td>
             <td>:</td>
-            <td className='pl-2'>{userData.email}</td>
+            <td className="pl-2">{userData.email}</td>
           </tr>
           <tr>
             <td className="font-semibold pr-4">Image URL</td>
             <td>:</td>
-            <td className='pl-2'>{userData.imageUrl}</td>
+            <td className="pl-2">{userData.imageUrl}</td>
           </tr>
         </tbody>
       </table>
